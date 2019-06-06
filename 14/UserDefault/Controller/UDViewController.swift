@@ -22,3 +22,12 @@ class UDViewController: UIViewController {
     }
 }
 
+extension UDViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+        
+    }
+}
+

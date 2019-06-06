@@ -25,9 +25,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="changedName:" destination="BYZ-38-t0r" eventType="editingChanged" id="1Kg-6T-FZ3"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Fa4-rj-hV3"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6a-vv-MyR">
@@ -37,9 +38,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="changedFamilyname:" destination="BYZ-38-t0r" eventType="editingChanged" id="TAE-X7-g9w"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Rr7-hC-crE"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -136,8 +138,8 @@
         <!--New Item-->
         <scene sceneID="rko-ib-zae">
             <objects>
-                <tableViewController id="Ct1-Tv-2bQ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IGy-5t-WNO">
+                <tableViewController id="Ct1-Tv-2bQ" customClass="NewItemTableViewController" customModule="_4" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IGy-5t-WNO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,14 +150,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vb0-n2-oRd" id="hRA-aR-W7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Print a New Item to Your To-Do List" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POc-JH-RKa">
                                                     <rect key="frame" x="30" y="13" width="354" height="103"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Ct1-Tv-2bQ" id="zMh-oP-Cgh"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
