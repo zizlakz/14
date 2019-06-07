@@ -182,11 +182,19 @@
                     <navigationItem key="navigationItem" title="New Item" id="fau-En-c6A">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="P3g-Wi-69C">
                             <connections>
-                                <segue destination="ke2-pS-4fd" kind="unwind" unwindAction="calcelAction:" id="qy3-Jm-v4v"/>
+                                <action selector="cancelAction:" destination="Ct1-Tv-2bQ" id="qlb-mu-uS8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0ha-3O-fZq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0ha-3O-fZq">
+                            <connections>
+                                <segue destination="ke2-pS-4fd" kind="unwind" unwindAction="unwindSegue:" id="cxs-2f-lMM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newItemTextField" destination="POc-JH-RKa" id="Ezl-aF-3lh"/>
+                        <outlet property="saveButton" destination="0ha-3O-fZq" id="gV7-Ub-1Us"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVP-MK-ZpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ke2-pS-4fd" userLabel="Exit" sceneMemberID="exit"/>

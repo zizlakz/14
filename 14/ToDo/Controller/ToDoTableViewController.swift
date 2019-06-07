@@ -14,19 +14,26 @@ class ToDoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return list.count
+        return listToDo.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = list[indexPath.row]
+        cell.textLabel?.text = listToDo[indexPath.row]
 
 
         return cell
     }
     
-    @IBAction func calcelAction(_ segue: UIStoryboardSegue){}
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue){
+        guard  let newItemVC = segue.source as? NewItemTableViewController else {
+            return}
+        newItemVC.saveNewItem()
+        listToDo.append(newItemVC.newItem!)
+        tableView.reloadData()
+        
+    }
  
 
 

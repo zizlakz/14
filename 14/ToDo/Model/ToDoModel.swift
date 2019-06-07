@@ -1,4 +1,4 @@
 
 import Foundation
 
-    let list = ["one", "zz"]
+    var listToDo = ["one", "zz"]
