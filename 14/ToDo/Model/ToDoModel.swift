@@ -1,4 +1,8 @@
 
-import Foundation
+import RealmSwift
 
-    var listToDo = ["one", "zz"]
+class Items: Object{
+    
+    @objc dynamic var item = ""
+    
+}

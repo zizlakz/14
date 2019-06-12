@@ -4,12 +4,9 @@ import UIKit
 
 class NewItemTableViewController: UITableViewController {
     
-    var newItem: String?
-    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)
     }
-    
     
     @IBOutlet weak var newItemTextField: UITextField!
     
@@ -24,7 +21,9 @@ class NewItemTableViewController: UITableViewController {
     }
     
     func saveNewItem() {
-        newItem = newItemTextField.text!
+        let newItem = Items()
+        newItem.item = newItemTextField.text!
+        StorageManager.saveObject(newItem)
     }
 }
 
