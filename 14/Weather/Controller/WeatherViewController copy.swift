@@ -10,10 +10,9 @@ class WeatherViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewWillAppear(_ animated: Bool) {
         label.text = WeatherStorage.shared.actWeather
-        
-        
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return WeatherStorage.shared.weather5date?.count ?? 1
