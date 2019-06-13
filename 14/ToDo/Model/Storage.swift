@@ -11,4 +11,10 @@ class StorageManager {
         }
     }
     
+    static func deletObject(_ item: Items){
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+    
 }

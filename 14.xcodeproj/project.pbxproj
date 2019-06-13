@@ -20,6 +20,11 @@
 		A0D733DD22A640EB00531F71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D733DB22A640EB00531F71 /* LaunchScreen.storyboard */; };
 		A0D733E822A640EB00531F71 /* _4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D733E722A640EB00531F71 /* _4Tests.swift */; };
 		A0D733F322A640EB00531F71 /* _4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D733F222A640EB00531F71 /* _4UITests.swift */; };
+		A0E0909622B1ABA0009FE5CE /* WeatherViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0909522B1ABA0009FE5CE /* WeatherViewController copy.swift */; };
+		A0E0909822B1ABFA009FE5CE /* ModelWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0909722B1ABFA009FE5CE /* ModelWeather.swift */; };
+		A0E0909A22B1ACA0009FE5CE /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0909922B1ACA0009FE5CE /* Loader.swift */; };
+		A0E0909C22B1AE5F009FE5CE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0909B22B1AE5F009FE5CE /* TableViewCell.swift */; };
+		A0E0909E22B1BB1D009FE5CE /* WeatherStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0909D22B1BB1C009FE5CE /* WeatherStorage.swift */; };
 		A0F5C18B22A65949007DAFFD /* UserDefaultPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5C18A22A65949007DAFFD /* UserDefaultPersistance.swift */; };
 		C3373885826FED459F80D234 /* Pods_14UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E209F480C9C7F90E3C69B1 /* Pods_14UITests.framework */; };
 		E5E59413D64C2A5B187B16A9 /* Pods_14Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B904E8A52F56E2F342596F99 /* Pods_14Tests.framework */; };
@@ -71,6 +76,11 @@
 		A0D733EE22A640EB00531F71 /* 14UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 14UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D733F222A640EB00531F71 /* _4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _4UITests.swift; sourceTree = "<group>"; };
 		A0D733F422A640EB00531F71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0E0909522B1ABA0009FE5CE /* WeatherViewController copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeatherViewController copy.swift"; sourceTree = "<group>"; };
+		A0E0909722B1ABFA009FE5CE /* ModelWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWeather.swift; sourceTree = "<group>"; };
+		A0E0909922B1ACA0009FE5CE /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		A0E0909B22B1AE5F009FE5CE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A0E0909D22B1BB1C009FE5CE /* WeatherStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStorage.swift; sourceTree = "<group>"; };
 		A0F5C18A22A65949007DAFFD /* UserDefaultPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultPersistance.swift; sourceTree = "<group>"; };
 		B904E8A52F56E2F342596F99 /* Pods_14Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_14Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +174,7 @@
 				A0D7340422A6425300531F71 /* UserDefault */,
 				A0F5C18C22A66E8F007DAFFD /* ToDo */,
 				A024094722B0046600BE7062 /* ToDoCoreData */,
+				A0E0908F22B1AAE8009FE5CE /* Weather */,
 				A0D7340822A6434800531F71 /* Supporting Files */,
 			);
 			path = 14;
@@ -262,6 +273,42 @@
 				A0D733D622A640E800531F71 /* _4.xcdatamodeld */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0E0908F22B1AAE8009FE5CE /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0909222B1AB06009FE5CE /* Model */,
+				A0E0909122B1AAFE009FE5CE /* View */,
+				A0E0909022B1AAF6009FE5CE /* Controller */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		A0E0909022B1AAF6009FE5CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0909522B1ABA0009FE5CE /* WeatherViewController copy.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A0E0909122B1AAFE009FE5CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0909B22B1AE5F009FE5CE /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0E0909222B1AB06009FE5CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0909722B1ABFA009FE5CE /* ModelWeather.swift */,
+				A0E0909922B1ACA0009FE5CE /* Loader.swift */,
+				A0E0909D22B1BB1C009FE5CE /* WeatherStorage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A0F5C18C22A66E8F007DAFFD /* ToDo */ = {
@@ -550,14 +597,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E0909C22B1AE5F009FE5CE /* TableViewCell.swift in Sources */,
 				A0F5C18B22A65949007DAFFD /* UserDefaultPersistance.swift in Sources */,
 				A0D733D222A640E800531F71 /* UDViewController.swift in Sources */,
+				A0E0909A22B1ACA0009FE5CE /* Loader.swift in Sources */,
 				A0D733D022A640E800531F71 /* AppDelegate.swift in Sources */,
 				A0D733D822A640E800531F71 /* _4.xcdatamodeld in Sources */,
 				A02436EC22A906AD008152DB /* ToDoTableViewController.swift in Sources */,
 				A024093A22AB158600BE7062 /* Storage.swift in Sources */,
+				A0E0909E22B1BB1D009FE5CE /* WeatherStorage.swift in Sources */,
 				A024094622B0025F00BE7062 /* ToDo2TableViewController.swift in Sources */,
 				A02436F022A91E6C008152DB /* NewItemTableViewController.swift in Sources */,
+				A0E0909622B1ABA0009FE5CE /* WeatherViewController copy.swift in Sources */,
+				A0E0909822B1ABFA009FE5CE /* ModelWeather.swift in Sources */,
 				A02436EE22A9080C008152DB /* ToDoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

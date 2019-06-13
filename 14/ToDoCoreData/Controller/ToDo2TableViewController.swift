@@ -5,7 +5,7 @@ class ToDo2_TableViewController: UITableViewController {
     
     var toDoItems: [Task] = []
     
-    
+    // MARK: - addButton
     @IBAction func addTask(_ sender: UIBarButtonItem) {
     
         let ac = UIAlertController(title: "Add New Item", message: nil, preferredStyle: .alert)
@@ -24,22 +24,23 @@ class ToDo2_TableViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    
+    // MARK: - saveTask
     func saveTask(taskToDo: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
         do {
             try context.save()
-            toDoItems.append(taskObject)
-            print("Saved!")
+            toDoItems.insert(taskObject, at: toDoItems.count)
         } catch {
             print(error.localizedDescription)
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -60,19 +61,44 @@ class ToDo2_TableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoItems.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
-        
-        //let task = toDoItems[indexPath.row]
+
         cell.textLabel?.text = toDoItems[indexPath.row].taskToDo
         
         return cell
 }
+    
+    
+        // MARK: - deleteAction
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deletAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let taskToDelete = self.toDoItems[indexPath.row]
+            context.delete(taskToDelete)
+            do {try context.save()
+            
+            self.toDoItems.remove(at: indexPath.row)
+   
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.reloadData()} catch let error as NSError {
+                    print("Delete error\(error). : \(error.userInfo)")
+            }
+        }
+        
+        return [deletAction]
+        
+    }
 }
+
+
+    
+
