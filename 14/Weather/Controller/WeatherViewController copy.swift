@@ -10,11 +10,25 @@ class WeatherViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         label.text = WeatherStorage.shared.actWeather
-    
         
+        
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return WeatherStorage.shared.weather5date?.count ?? 1
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellWeather") as! TableViewCell
+            cell.label1.text = WeatherStorage.shared.weather5date?[indexPath.row] ?? ""
+            cell.label2.text = WeatherStorage.shared.weather5?[indexPath.row] ?? ""
+            
+            return cell
+        }
+        
+        self.tableView.reloadData()
+        self.tableView.backgroundColor = UIColor.init(red: 0.1, green: 1, blue: 0.7, alpha: 0.2)
     }
     
     override func viewDidLoad() {
@@ -27,9 +41,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource {
                     self.label.text = "\(string)"}
                 else{self.label.text = "Error"}
                 WeatherStorage.shared.actWeather = self.label.text
-
             }
-
         }
         
         loader1.load5Days{categories in
@@ -52,8 +64,12 @@ class WeatherViewController: UIViewController, UITableViewDataSource {
         
         cell.label1.text = model.dtTxt
         cell.label2.text = "Temperature: \(celsius)ºC\n" + "Pressure: \(model.main1["pressure"]!)\n" + "Humidity: \(model.main1["humidity"]!)\n" + "Wind speed: \(model.wind["speed"]!)m/s \n" + "\(model.weather[0]["main"]!)"
-    
         
+        WeatherStorage.shared.weather5date = [cell.label1.text] as? [String]
+        WeatherStorage.shared.weather5 = [cell.label2.text] as? [String]
+        
+        print(WeatherStorage.shared.weather5 ?? "")
+    
         return cell
     }
 }
