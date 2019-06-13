@@ -18,6 +18,8 @@ class WeatherViewController: UIViewController, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         self.label.text = newWeather.actWeather
         
+        var test = "test"
+        
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return list5.count
